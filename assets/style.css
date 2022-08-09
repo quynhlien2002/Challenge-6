@@ -1,0 +1,45 @@
+.container-custom{
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.jumbotron{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(62,62,166,1) 35%, rgba(0,212,255,1) 100%); 
+}
+
+.form-group{
+    height: 30px;
+    width: 250px;
+    position: absolute;
+    left: 50px;
+    font-size: 30px;
+}
+
+.btn-custom{
+     position: relative;
+     left: 80px;
+}
+
+.card-custom{
+    position: relative;
+    left: 400px;
+    height: 300px;
+} 
+
+.forecast{
+    position: relative;
+    left: 385px;
+    width: 70rem;
+    margin-top: 40px;
+}
+
+.col-sm-2 .card{
+    background-color: rgb(39, 39, 104);
+}
+
+
+
+
+
