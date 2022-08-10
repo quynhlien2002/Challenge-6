@@ -10,7 +10,7 @@ var futureDate = document.getElementsByClassName('date-future');
 var futureTemp = document.getElementsByClassName('temp-future');
 var futureWind = document.getElementsByClassName('wind-future');
 var futureHumidity = document.getElementsByClassName('humidity-future');
-var searchHistory = document.querySelector('.search-history');
+var searchHistory = document.querySelector('.history');
 
 
 button.addEventListener('click', function(whenClick){
@@ -78,10 +78,13 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&c
             };
 
         });
-        var nameValue = localStorage.getItem("nameValue");
-            for (i=0; i<nameValue.length; i++){
+         nameValue = localStorage.getItem("nameValue");
+            for (i=0; i<1; i++){
                 if (nameValue){
-                    searchHistory.innerHTML = nameValue;
+                    var searchBtn= document.createElement('button');
+                    searchBtn.className += 'search-history';
+                    searchBtn.innerHTML = nameValue;
+                    searchHistory.appendChild(searchBtn);
                 }
             }
             });
