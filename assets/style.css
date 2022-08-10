@@ -22,6 +22,49 @@
      left: 80px;
 }
 
+hr{
+    width: 250px;
+    border: solid 1px black ;
+    position: absolute;
+    top: 380px;
+    right: 621px;
+}
+
+.history{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 450px;
+    left: 70px;
+    display: block;
+}
+
+.search-history{
+  appearance: button;
+  background-color: #5061bf;
+  border: solid transparent;
+  border-radius: 16px;
+  border-width: 0 0 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: din-round,sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: .8px;
+  line-height: 20px;
+  margin: 0;
+  outline: none;
+  overflow: visible;
+  padding: 13px 16px;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
+}
+
 .card-custom{
     position: relative;
     left: 400px;
@@ -52,6 +95,8 @@
     position: relative;
     top: 20px;
 }
+
+
 
 
 

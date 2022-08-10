@@ -10,10 +10,10 @@ var futureDate = document.getElementsByClassName('date-future');
 var futureTemp = document.getElementsByClassName('temp-future');
 var futureWind = document.getElementsByClassName('wind-future');
 var futureHumidity = document.getElementsByClassName('humidity-future');
+var searchHistory = document.querySelector('.search-history');
 
 
-
-button.addEventListener('click', function(){
+button.addEventListener('click', function(whenClick){
     fetch ('https://api.openweathermap.org/data/2.5/weather?q='+citySearch.value+'&units=imperial&appid=636f19696100c90191a9c3a1c1db82f4')
     .then(function (response) {
         return response.json();
@@ -30,12 +30,12 @@ button.addEventListener('click', function(){
     wind.innerHTML = "Wind: " + windValue + " MPH";
     humidity.innerHTML = "Humidity: " + humidityValue + "%";
     
-    var lat = data['coord']['lat'];
-    var lon = data ['coord']['lon'];
+    var lat = data.coord.lat;
+    var lon = data.coord.lon;
     
     localStorage.setItem('lat', lat);
     localStorage.setItem("lon", lon);
-
+    localStorage.setItem('nameValue', nameValue)
 });
 
 var lat = localStorage.getItem('lat');
@@ -54,32 +54,42 @@ fetch('https://api.openweathermap.org/data/2.5/uvi?appid=636f19696100c90191a9c3a
                 uv.innerHTML = "UV Index: " + uvValue;
             })
             
-fetch('https://api.openweathermap.org/data/2.5/forecast/daily?lat='+lat+'&lon='+lon+'&cnt=5&appid=636f19696100c90191a9c3a1c1db82f4')
+fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&cnt=5&units=imperial&appid=636f19696100c90191a9c3a1c1db82f4')
      .then(function(response){
     return response.json();
      })
      .then(function(data){
     console.log(data);
      for (i=0; i<=5; i++){
-        var dateFuture = data['list'][i]['dt'];
-        var tempFuture = data['list'][i]['temp'];
-        var windFuture =data['list'][i]['speed'];
-        var humidityFuture = data['list'][i]['humidity'];
-                console.log(dateFuture);
-                console.log(tempFuture);
-                console.log(windFuture);
-                console.log(humidityFuture);
+        var dateFuture = data['daily'][i]['dt'];
+        var dateConvert = new Date(dateFuture*1000);
+        var tempFuture = data['daily'][i]['temp']['day'];
+        var windFuture =data['daily'][i]['wind_speed'];
+        var humidityFuture = data['daily'][i]['humidity'];
+            console.log(dateConvert);
+            console.log(tempFuture);
+            console.log(windFuture);
+            console.log(humidityFuture);
                 
-                futureDate[i].innerHTML = dateFuture;
-                futureTemp[i].innerHTML = tempFuture;
-                futureWind[i].innerHTML = windFuture;
-                futureHumidity[i].innerHTML = humidityFuture;
-
-    // not working url 
-    // need to ask 
-
+            futureDate[i].innerHTML = dateConvert.toLocaleString();
+            futureTemp[i].innerHTML = tempFuture  + " Farenheit";
+            futureWind[i].innerHTML = windFuture + " MPH";
+            futureHumidity[i].innerHTML = "Humidity: " + humidityFuture + " %";
                 
+            var nameValue = localStorage.getItem("nameValue");
+
+// for (i=0; i<nameValue.length; i++){
+//     if (nameValue){
+//         searchHistory.innerHTML = nameValue;
+//     }
+// }
             };
         })
             });
-        
+
+// searchHistory.addEventListener('click', function(){
+//     whenClick(nameValue);
+// })
+
+
+
