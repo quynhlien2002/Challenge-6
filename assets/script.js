@@ -61,13 +61,15 @@ fetch('https://api.openweathermap.org/data/2.5/uvi?appid=636f19696100c90191a9c3a
         .then(function(data){
             console.log(data);
             for (i=0; i<=5; i++){
-                var dateFuture = data['list']['dt'] ;
-                var tempFuture;
+                var dateFuture = data.list[i].dt_txt;
+                var tempFuture = data.main[i].temp;
                 var windFuture;
                 var humidityFuture;
+                console.log(dateFuture);
+                console.log(tempFuture)
                 
-                futureDate = dateFuture;
-                console.log(futureDate)
+                futureDate.innerHTML = dateFuture;
+                futureTemp.innerHTML = tempFuture;
                 
             };
         })
