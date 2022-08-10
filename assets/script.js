@@ -75,16 +75,15 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&c
             futureTemp[i].innerHTML = tempFuture  + " Farenheit";
             futureWind[i].innerHTML = windFuture + " MPH";
             futureHumidity[i].innerHTML = "Humidity: " + humidityFuture + " %";
-                
-            var nameValue = localStorage.getItem("nameValue");
-
-// for (i=0; i<nameValue.length; i++){
-//     if (nameValue){
-//         searchHistory.innerHTML = nameValue;
-//     }
-// }
             };
-        })
+
+        });
+        var nameValue = localStorage.getItem("nameValue");
+            for (i=0; i<nameValue.length; i++){
+                if (nameValue){
+                    searchHistory.innerHTML = nameValue;
+                }
+            }
             });
 
 // searchHistory.addEventListener('click', function(){
