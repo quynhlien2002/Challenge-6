@@ -39,6 +39,19 @@
     background-color: rgb(39, 39, 104);
 }
 
+#city-name {
+    font-size: 30px;
+}
+
+#temp, 
+#wind, 
+#humidity, 
+#uv {
+    font-size: 20px;
+    position: relative;
+    top: 20px;
+}
+
 
 
 
