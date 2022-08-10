@@ -54,18 +54,17 @@ fetch('https://api.openweathermap.org/data/2.5/uvi?appid=636f19696100c90191a9c3a
                 uv.innerHTML = "UV Index: " + uvValue;
             })
             
-        fetch('https://api.openweathermap.org/data/2.5/forecast/daily?lat='+lat+'&lon='+lon+'&cnt=5&appid=636f19696100c90191a9c3a1c1db82f4')
-            .then(function(response){
-            return response.json();
-        })
-        .then(function(data){
-            console.log(data);
-            for (i=0; i<=5; i++){
-                var dateFuture = data['list'][i]['dt'];
-                
-                var tempFuture = data['list'][i]['temp'];
-                var windFuture =data['list'][i]['speed'];
-                var humidityFuture = data['list'][i]['humidity'];
+fetch('https://api.openweathermap.org/data/2.5/forecast/daily?lat='+lat+'&lon='+lon+'&cnt=5&appid=636f19696100c90191a9c3a1c1db82f4')
+     .then(function(response){
+    return response.json();
+     })
+     .then(function(data){
+    console.log(data);
+     for (i=0; i<=5; i++){
+        var dateFuture = data['list'][i]['dt'];
+        var tempFuture = data['list'][i]['temp'];
+        var windFuture =data['list'][i]['speed'];
+        var humidityFuture = data['list'][i]['humidity'];
                 console.log(dateFuture);
                 console.log(tempFuture);
                 console.log(windFuture);
@@ -76,7 +75,8 @@ fetch('https://api.openweathermap.org/data/2.5/uvi?appid=636f19696100c90191a9c3a
                 futureWind[i].innerHTML = windFuture;
                 futureHumidity[i].innerHTML = humidityFuture;
 
-    
+    // not working url 
+    // need to ask 
 
                 
             };
