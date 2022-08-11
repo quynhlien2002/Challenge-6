@@ -22,13 +22,7 @@
      left: 80px;
 }
 
-hr{
-    width: 250px;
-    border: solid 1px black ;
-    position: absolute;
-    top: 380px;
-    right: 621px;
-}
+
 
 .history{
     width: 200px;
@@ -69,13 +63,16 @@ hr{
     position: relative;
     left: 400px;
     height: 300px;
+    display:none;
+    border: 1px solid black;
 } 
 
 .forecast{
     position: relative;
-    left: 385px;
-    width: 70rem;
+    left: 365px;
+    width: 10rem;
     margin-top: 40px;
+    display: none;
 }
 
 .col-sm-2 .card{

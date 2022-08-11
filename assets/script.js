@@ -11,10 +11,14 @@ var futureTemp = document.getElementsByClassName('temp-future');
 var futureWind = document.getElementsByClassName('wind-future');
 var futureHumidity = document.getElementsByClassName('humidity-future');
 var searchHistory = document.querySelector('.history');
+var cardCustom = document.querySelector(".card-custom");
+var forecast = document.querySelector('.forecast');
 
 button.addEventListener('click', firstFunction)
     
 function firstFunction(){
+    cardCustom.setAttribute('style', 'display: unset') ;
+    forecast.setAttribute('style','display: unset')
     fetch ('https://api.openweathermap.org/data/2.5/weather?q='+citySearch.value+'&units=imperial&appid=636f19696100c90191a9c3a1c1db82f4')
     .then(function (response) {
         return response.json();
@@ -26,7 +30,7 @@ function firstFunction(){
     var humidityValue = data['main']['humidity'];
     console.log(data);
 
-    cityName.innerHTML = nameValue + " " + " " + today;
+    cityName.innerHTML = nameValue + " (" + today + ")";
     temp.innerHTML = "Temp: " + tempValue + " Farenheit";
     wind.innerHTML = "Wind: " + windValue + " MPH";
     humidity.innerHTML = "Humidity: " + humidityValue + "%";
@@ -91,6 +95,10 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&c
             }
                     };
 
-searchBtn.addEventListener('click', firstFunction);
+searchBtn.addEventListener('click', function(){
+    
+    });
+
+
 
 
