@@ -88,16 +88,19 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&c
                 if (nameValue){
                     var searchBtn= document.createElement('button');
                     searchBtn.className += 'search-history';
-                    searchBtn.innerHTML = nameValue;
+                    var buttonValue= citySearch.value;
+                    searchBtn.innerHTML = buttonValue;
                     searchHistory.appendChild(searchBtn);
-                return
+            return
                 } 
+                    
+                };
             }
-                    };
+    searchBtn.addEventListener('click', function(){
+        buttonValue = citySearch;
+        firstFunction();
+    })
 
-searchBtn.addEventListener('click', function(){
-    
-    });
 
 
 
