@@ -91,14 +91,15 @@ fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&c
                     var buttonValue= citySearch.value;
                     searchBtn.innerHTML = buttonValue;
                     searchHistory.appendChild(searchBtn);
-            return
+            
                 } 
             };
-            searchBtn.addEventListener('click', function(){
-                buttonValue = citySearch;
-                firstFunction()
-            });
         }
+
+        searchBtn.addEventListener('click', function(){
+            buttonValue = citySearch;
+            firstFunction()
+        });
     
         
 
